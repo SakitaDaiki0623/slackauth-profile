@@ -15,7 +15,7 @@ import "firebase/auth";
 // };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+// firebase.initializeApp(firebaseConfig);
+// firebase.analytics();
 
 createApp(App).use(store).use(router).mount("#app");
