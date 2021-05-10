@@ -28,7 +28,7 @@ export default {
   },
   data() {
     return {
-      slackAuthUrl: `https://slack.com/oauth/v2/authorize?user_scope=identity.basic&client_id=${process.env.VUE_APP_SLACK_CLIENT_ID}`,
+      slackAuthUrl: `https://slack.com/oauth/v2/authorize?user_scope=identity.basic&client_id=${process.env.VUE_APP_SLACK_CLIENT_ID}&state=${window.location.href}`,
     };
   },
 };
