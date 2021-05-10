@@ -1,5 +1,5 @@
 import * as functions from "firebase-functions";
-const { WebClient } = require("@slack/web-api");
+const { WebClient } = require("@slack/web-api"); // eslint-disable-line
 
 export type oauthAccessResponseType = {
   userId: string;
@@ -7,9 +7,10 @@ export type oauthAccessResponseType = {
   scope: string;
   teamName: string;
   teamId: string;
+  authed_user: any; // eslint-disable-line
 };
 export const oauthAccess = async (
-  code: string
+    code: string
 ): Promise<oauthAccessResponseType> => {
   try {
     const res = await new WebClient().oauth.v2.access({

@@ -1,7 +1,7 @@
 import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
-import { oauthAccess } from "./slack";
-import { URL } from "url";
+import {oauthAccess} from "./slack";
+import {URL} from "url";
 
 admin.initializeApp({
   serviceAccountId: "slackauth-prof@appspot.gserviceaccount.com",
@@ -21,8 +21,8 @@ exports.authWithSlack = functions.https.onRequest(async (req, res) => {
 
   try {
     const customToken = await admin
-      .auth()
-      .createCustomToken(userCredential.authed_user.id);
+        .auth()
+        .createCustomToken(userCredential.authed_user.id);
 
     if (redirectUri) {
       const url = new URL(redirectUri);
@@ -30,10 +30,10 @@ exports.authWithSlack = functions.https.onRequest(async (req, res) => {
       res.redirect(303, url.toString());
     } else {
       res
-        .json({
-          custom_token: customToken,
-        })
-        .end();
+          .json({
+            custom_token: customToken,
+          })
+          .end();
     }
     return;
   } catch (e) {
